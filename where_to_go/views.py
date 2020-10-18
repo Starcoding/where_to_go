@@ -13,7 +13,7 @@ def index_page(request):
 	for place in places:
 		lon, lat = place.longitude, place.latitude
 		coordinates_to_dict = [float(lon), float(lat)]
-		place_as_dict = { #этих штук будет много в листе
+		place_as_dict = {
 		  "type": "Feature",
 		  "geometry": {
 			"type": "Point",
@@ -31,7 +31,7 @@ def index_page(request):
 	to_template = { 'data': 
 		{
 		  "type": "FeatureCollection",
-		  "features": list_of_json #сюда пихую лист сверху
+		  "features": list_of_json
 		}
 	}
 
