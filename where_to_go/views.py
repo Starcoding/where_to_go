@@ -27,7 +27,6 @@ def index_page(request):
 		}
 		list_of_json.append(place_as_dict)
 	
-	data = {}
 	to_template = { 'data': 
 		{
 		  "type": "FeatureCollection",
