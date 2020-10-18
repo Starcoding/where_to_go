@@ -14,7 +14,7 @@ class Place(models.Model):
 		return self.title
 		
 class Image(models.Model):
-	image = models.ImageField(blank=True)
+	image = models.ImageField(blank=False)
 	number = models.PositiveIntegerField(default=0, blank=False, null=False)
 	places = models.ForeignKey(Place, on_delete=models.CASCADE)
 	
