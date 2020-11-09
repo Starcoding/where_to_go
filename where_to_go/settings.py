@@ -30,9 +30,9 @@ SECRET_KEY = "gkyf#0&+2m%#a9gwl4!d&lml#xac9@d965o-1nys#(+(m9$h!q"
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 if os.getenv('DEBUG') == "True":
-	DEBUG = True
+    DEBUG = True
 else:
-	DEBUG = False
+    DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", ".pythonanywhere.com", 'localhost']
 
@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'places.apps.PlacesConfig',
-	'adminsortable2',
-	'tinymce',
+    'places.apps.PlacesConfig',
+    'adminsortable2',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'where_to_go.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,10 +134,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'assets/'
 
 STATICFILES_DIRS = [
-	BASE_DIR / 'static/',
+    BASE_DIR / 'static/',
 ]
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
-

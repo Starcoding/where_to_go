@@ -23,7 +23,7 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('', views.index_page),
-	path('places/<int:post_id>/', id_api),
-	path('tinymce/', include('tinymce.urls')),
+    path('', views.index_page),
+    path('places/<int:post_id>/', id_api),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
