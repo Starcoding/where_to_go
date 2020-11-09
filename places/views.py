@@ -4,7 +4,7 @@ from places.models import Place, Image
 
 # Create your views here.
 def id_api(request, post_id):
-	place = get_object_or_404(Place.objects.filter(id = post_id))
+	place = get_object_or_404(Place, id = post_id)
 	images = Image.objects.filter(places__in = Place.objects.filter(id = post_id))
 	
 	imgs = []
