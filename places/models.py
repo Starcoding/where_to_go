@@ -4,6 +4,7 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 class Place(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, blank=True)
     description_short = HTMLField()
     description_long = HTMLField()
@@ -16,6 +17,7 @@ class Place(models.Model):
 
 
 class Image(models.Model):
+    id = models.AutoField(primary_key=True)
     image = models.ImageField(blank=False)
     number = models.PositiveIntegerField(default=0, blank=False, null=False)
     places = models.ForeignKey(Place, on_delete=models.CASCADE)
