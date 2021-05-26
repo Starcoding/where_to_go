@@ -3,3 +3,4 @@ Pillow
 python-dotenv
 django-tinymce
 django-admin-sortable2
+requests
