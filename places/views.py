@@ -3,21 +3,18 @@ from django.http import JsonResponse
 from places.models import Place, Image
 
 
-# Create your views here.
 def id_api(request, post_id):
     place = get_object_or_404(Place, id=post_id)
-    images = Image.objects.filter(places__in=Place.objects.filter(id=post_id))
-
-    imgs = []
+    images = place.images.all()
+    imgs_urls = []
     for image in images:
-        img_path = image.image.url
-        imgs.append(img_path)
+        imgs_urls.append(image.image.url)
 
     respose_data = {
         'title': place.title,
-        'imgs': imgs,
+        'imgs_urls': imgs_urls,
         'description_short': place.description_short,
         'description_long': place.description_long,
-        'coordinates': "#"
+        'coordinates': f"{place.latitude}, {place.longitude}"
     }
     return JsonResponse(respose_data, json_dumps_params={'ensure_ascii': False})

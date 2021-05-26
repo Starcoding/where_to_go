@@ -1,6 +1,5 @@
 venv
 assets
-**/migrations/**
 .idea
 media
 .env

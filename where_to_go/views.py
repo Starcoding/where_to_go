@@ -6,16 +6,16 @@ def index_page(request):
 
     places = Place.objects.all()
 
-    list_of_json = []
+    data = []
 
     for place in places:
         lon, lat = place.longitude, place.latitude
-        coordinates_to_dict = [float(lon), float(lat)]
-        place_as_dict = {
+        coordinates = [lon, lat]
+        place_serialized = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": coordinates_to_dict
+                "coordinates": coordinates
             },
             "properties": {
                 "title": place.title,
@@ -23,12 +23,12 @@ def index_page(request):
                 "detailsUrl": f"places/{place.id}/"
             }
         }
-        list_of_json.append(place_as_dict)
+        data.append(place_serialized)
 
     to_template = {'data':
         {
             "type": "FeatureCollection",
-            "features": list_of_json
+            "features": data
         }
     }
     return render(request, 'index.html', to_template)
