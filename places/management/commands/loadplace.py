@@ -24,9 +24,9 @@ class Command(BaseCommand):
             for img_number, img_url in enumerate(place_raw["imgs"], 1):
                 request = requests.get(img_url)
                 img_name = os.path.split(urlsplit(unquote(img_url)).path)[1]
-                img = Image.objects.get_or_create(place=place, number=img_number)
+                img, created = Image.objects.get_or_create(place=place, number=img_number)
                 f = ContentFile(request.content)
-                img[0].image.save(img_name, f, save=True) 
+                img.image.save(img_name, f, save=True) 
 
                 
 
