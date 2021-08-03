@@ -6,9 +6,7 @@ from places.models import Place
 def get_place_by_id(request, post_id):
     place = get_object_or_404(Place, id=post_id)
     images = place.images.all()
-    imgs_urls = []
-    for image in images:
-        imgs_urls.append(image.image.url)
+    imgs_urls = [image.image.url for image in images]
 
     respose_data = {
         'title': place.title,
