@@ -15,6 +15,9 @@ def id_api(request, post_id):
         'imgs': imgs_urls,
         'description_short': place.description_short,
         'description_long': place.description_long,
-        'coordinates': f"{place.latitude}, {place.longitude}"
+        'coordinates': {
+            'lng': place.longitude,
+            'lat': place.latitude
+        }
     }
     return JsonResponse(respose_data, json_dumps_params={'ensure_ascii': False})
