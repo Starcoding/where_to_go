@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from places.models import Place
 
 
-def id_api(request, post_id):
+def get_place_by_id(request, post_id):
     place = get_object_or_404(Place, id=post_id)
     images = place.images.all()
     imgs_urls = []

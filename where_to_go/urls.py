@@ -18,12 +18,12 @@ from django.urls import path
 from where_to_go import views
 from django.conf import settings
 from django.conf.urls.static import static
-from places.views import id_api
+from places.views import get_place_by_id
 from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page),
-    path('places/<int:post_id>/', id_api),
+    path('places/<int:post_id>/', get_place_by_id),
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
