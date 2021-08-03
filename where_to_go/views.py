@@ -25,10 +25,10 @@ def index_page(request):
         }
         data.append(place_serialized)
 
-    to_template = {'data':
+    data_from_backend = {'data':
         {
             "type": "FeatureCollection",
             "features": data
         }
     }
-    return render(request, 'index.html', to_template)
+    return render(request, 'index.html', data_from_backend)
