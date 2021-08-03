@@ -16,10 +16,10 @@ class Place(models.Model):
 class Image(models.Model):
     image = models.ImageField()
     number = models.PositiveIntegerField(default=0, blank=True)
-    places = models.ForeignKey(Place, related_name="images", on_delete=models.CASCADE, blank=True)
+    place = models.ForeignKey(Place, related_name="images", on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
-        return f'{self.number}, {self.places.title}'
+        return f'{self.number}, {self.place.title}'
 
     class Meta:
         ordering = ('number',)

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-from places.models import Place, Image
+from places.models import Place
 
 
 def id_api(request, post_id):
