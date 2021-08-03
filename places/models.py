@@ -13,7 +13,8 @@ class Place(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Места'
+        verbose_name = 'Место'
+        verbose_name_plural = 'Места'
 
 class Image(models.Model):
     image = models.ImageField(verbose_name='Изображение')
@@ -25,4 +26,5 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('number',)
-        verbose_name = 'Изображения'
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
