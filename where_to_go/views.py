@@ -25,10 +25,10 @@ def index_page(request):
         }
         data.append(place_serialized)
 
-    data_from_backend = {'data':
+    points_on_map = {'data':
         {
             "type": "FeatureCollection",
             "features": data
         }
     }
-    return render(request, 'index.html', data_from_backend)
+    return render(request, 'index.html', points_on_map)
