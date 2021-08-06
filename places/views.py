@@ -8,7 +8,7 @@ def get_place_by_id(request, post_id):
     images = place.images.all()
     imgs_urls = [image.image.url for image in images]
 
-    respose_data = {
+    respose = {
         'title': place.title,
         'imgs': imgs_urls,
         'description_short': place.description_short,
@@ -18,4 +18,4 @@ def get_place_by_id(request, post_id):
             'lat': place.latitude
         }
     }
-    return JsonResponse(respose_data, json_dumps_params={'ensure_ascii': False})
+    return JsonResponse(respose, json_dumps_params={'ensure_ascii': False})

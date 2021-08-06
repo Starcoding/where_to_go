@@ -6,7 +6,7 @@ def index_page(request):
 
     places = Place.objects.all()
 
-    data = []
+    points_on_map = []
 
     for place in places:
         lon, lat = place.longitude, place.latitude
@@ -23,12 +23,12 @@ def index_page(request):
                 "detailsUrl": f"places/{place.id}/"
             }
         }
-        data.append(place_serialized)
+        points_on_map.append(place_serialized)
 
-    points_on_map = {'data':
+    context = {'data':
         {
             "type": "FeatureCollection",
             "features": data
         }
     }
-    return render(request, 'index.html', points_on_map)
+    return render(request, 'index.html', context)
